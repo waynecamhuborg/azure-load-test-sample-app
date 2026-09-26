@@ -34,6 +34,8 @@ jobs:
       - name: Azure Load Testing
         # Use the maintained major tag to pick up compatibility fixes for GitHub-hosted runners.
         uses: azure/load-testing@v1
+        env:
+          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
         with:
           loadTestConfigFile: 'config.yaml'
           loadTestResource: ${{ env.LOAD_TEST_RESOURCE}}
@@ -52,4 +54,3 @@ jobs:
         with:
           name: loadTestResults
           path: ${{github.workspace}}/loadTest
-
